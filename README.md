@@ -1,5 +1,15 @@
-## Infrastructure
+## Development
+In order to start developing, follow the steps in this section.
 
+### Pre-Requisites
+* Docker >= 19.x
+
+### Starting the Application
+```bash
+docker compose up
+```
+
+## Infrastructure
 The infrastructure for this project is created by [Terraform](https://terraform.io).
 
 ### Pre-Requisites
