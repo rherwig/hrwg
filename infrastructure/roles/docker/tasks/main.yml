@@ -1,0 +1,28 @@
+---
+
+- name: ensure docker dependencies are present
+  apt:
+    name: "{{ item }}"
+    update_cache: true
+    state: present
+  loop:
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+
+- name: ensure apt key is present
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: ensure apt repository is present
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: ensure docker is present
+  apt:
+    name: docker-ce
+    update_cache: true
+    state: present

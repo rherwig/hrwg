@@ -1,0 +1,12 @@
+---
+
+- name: ensure SSH connection is ready
+  wait_for_connection:
+      timeout: 300
+
+- name: ensure SSH keys are present
+  authorized_key:
+      user: root
+      state: present
+      key: "{{ item }}"
+  with_file: "{{ ssh_keys }}"
